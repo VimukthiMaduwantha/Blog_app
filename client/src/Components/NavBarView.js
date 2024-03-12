@@ -8,9 +8,14 @@ import Container from '@mui/material/Container';
 import Tooltip from '@mui/material/Tooltip';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import LoginIcon from '@mui/icons-material/Login';
+import { useNavigate } from 'react-router-dom';
 
 function NavBarView() {
-    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+
+    function HandleOpenLoginDialog() {
+        navigate('/login')
+    }
 
     return (
         <>
@@ -42,18 +47,17 @@ function NavBarView() {
                         </Box>
 
                         <Box sx={{ flexGrow: 0, }}>
-                            <Tooltip title="Wishlist">
+                            <Tooltip title="Favourite">
                                 <IconButton /* onClick={handleOpenUserMenu}  */ sx={{ p: 1 }}>
                                     <FavoriteBorderIcon sx={{ color: 'black' }} />
                                 </IconButton>
                             </Tooltip>
-                            <Tooltip title="Cart">
-                                <IconButton /* onClick={handleOpenUserMenu}  */ sx={{ p: 1 }}>
+                            <Tooltip title="SignIn">
+                                <IconButton onClick={HandleOpenLoginDialog} sx={{ p: 1 }}>
                                     <LoginIcon sx={{ color: 'black' }} />
                                 </IconButton>
                             </Tooltip>
                         </Box>
-
                     </Toolbar>
                 </Container>
             </AppBar >

@@ -7,6 +7,7 @@ import Home from './View/Home';
 import Admin from './View/Admin';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import Login from './View/Login';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/admin' element={<Admin />} />
+        <Route exact path='/login' element={<Login />} />
       </Routes>
       <ToastContainer
         position="bottom-right"
