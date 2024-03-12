@@ -99,7 +99,7 @@ function Blogcategory() {
         categoryID: 1,
         categoryName: ''
     })
-    const [categoryID, setCategoryID] = useState(0)
+    const [categoryID, setCategoryID] = useState(1)
     const [gridData, setGridData] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -155,6 +155,17 @@ function Blogcategory() {
                 categoryName: formData.categoryName,
             }
             console.log("updateModel::>> ", updateModel)
+            axios.put('http://localhost:8080/api/category/updateCategory', updateModel).then((res) => {
+                if (res.data.status = 'Success') {
+                    setFormData({
+                        ...formData,
+                        categoryName: ''
+                    })
+                    setIsUpdate(false);
+                    getLatestCatogryID();
+                    getAllCategoryDetails();
+                }
+            })
         }
     }
 
